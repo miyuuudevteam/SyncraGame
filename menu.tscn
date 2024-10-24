@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://biudior8u6lfv"]
+
+[ext_resource type="Texture2D" uid="uid://dgsjg4cxd3tav" path="res://defaultpfp.jpg" id="1_nlukd"]
+[ext_resource type="FontFile" uid="uid://beihs356scroj" path="res://Nunito-ExtraBold.ttf" id="2_4snt7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhl20"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_021kg"]
+bg_color = Color(0.504686, 0.172893, 0.727435, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1580.0
+offset_top = 954.0
+offset_right = 1895.0
+offset_bottom = 1055.0
+
+[node name="AvatarFrame" type="Panel" parent="Player"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = -38.5
+offset_right = 87.0
+offset_bottom = 37.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhl20")
+
+[node name="Avatar" type="TextureRect" parent="Player/AvatarFrame"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 76.0
+texture = ExtResource("1_nlukd")
+expand_mode = 1
+
+[node name="Username" type="Label" parent="Player"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 15.0
+offset_right = 299.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_4snt7")
+theme_override_font_sizes/font_size = 23
+text = "Example User"
+
+[node name="UserLevel" type="Label" parent="Player"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 46.0
+offset_right = 302.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("2_4snt7")
+theme_override_font_sizes/font_size = 14
+text = "Level: 0"
+
+[node name="PerformancePoints" type="Label" parent="Player"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 67.0
+offset_right = 302.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("2_4snt7")
+theme_override_font_sizes/font_size = 14
+text = "PP: 0"
+
+[node name="UpperTab" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 1.0
+offset_right = 1922.0
+offset_bottom = 64.0
+
+[node name="Divider" type="Panel" parent="UpperTab"]
+layout_mode = 0
+offset_top = 63.0
+offset_right = 1924.0
+offset_bottom = 67.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_021kg")
