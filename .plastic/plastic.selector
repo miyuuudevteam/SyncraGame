@@ -1,0 +1,4 @@
+repository "SyncraClient@ShionidevTeam@cloud"
+  path "/"
+    br "/main"
+    co "/main"
