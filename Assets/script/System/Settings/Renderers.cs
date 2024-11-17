@@ -1,19 +1,48 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
-using UnityEditor;
+using System.Runtime.InteropServices;
 
 public class RendererDropdownManager : MonoBehaviour
 {
     public Dropdown rendererDropdown;
     public GameObject restartPromptPanel;
-
     private List<GraphicsDeviceType> availableRenderers = new List<GraphicsDeviceType>();
+    private ErrorCodeManager errorCodeManager;
 
     private void Start()
     {
-        // Add renderers based on platform compatibility
+        errorCodeManager = FindObjectOfType<ErrorCodeManager>();
+        rendererDropdown.ClearOptions();
+
+        PopulateAvailableRenderers();
+        List<string> options = new List<string>();
+        int savedRendererIndex = PlayerPrefs.GetInt("RendererIndex", 0);
+
+        for (int i = 0; i < availableRenderers.Count; i++)
+        {
+            options.Add(availableRenderers[i].ToString());
+        }
+
+        rendererDropdown.AddOptions(options);
+
+        if (savedRendererIndex >= availableRenderers.Count)
+        {
+            savedRendererIndex = 0;
+        }
+
+        rendererDropdown.value = savedRendererIndex;
+        rendererDropdown.RefreshShownValue();
+        rendererDropdown.onValueChanged.AddListener(OnRendererChanged);
+
+        if (restartPromptPanel != null)
+        {
+            restartPromptPanel.SetActive(false);
+        }
+    }
+
+    private void PopulateAvailableRenderers()
+    {
         if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
         {
             availableRenderers.Add(GraphicsDeviceType.Direct3D11);
@@ -31,35 +60,18 @@ public class RendererDropdownManager : MonoBehaviour
             availableRenderers.Add(GraphicsDeviceType.Vulkan);
             availableRenderers.Add(GraphicsDeviceType.OpenGLCore);
         }
-
-        rendererDropdown.ClearOptions();
-        List<string> options = new List<string>();
-        int savedRendererIndex = PlayerPrefs.GetInt("RendererIndex", 0);
-
-        // Populate dropdown with filtered renderer options
-        for (int i = 0; i < availableRenderers.Count; i++)
-        {
-            options.Add(availableRenderers[i].ToString());
-        }
-
-        rendererDropdown.AddOptions(options);
-        rendererDropdown.value = savedRendererIndex;
-        rendererDropdown.RefreshShownValue();
-
-        rendererDropdown.onValueChanged.AddListener(OnRendererChanged);
-
-        // Hide restart prompt at the start
-        if (restartPromptPanel != null)
-        {
-            restartPromptPanel.SetActive(false);
-        }
     }
 
     private void OnRendererChanged(int rendererIndex)
     {
+        if (rendererIndex >= availableRenderers.Count)
+        {
+            ShowUnsupportedRendererError();
+            return;
+        }
+
         SetRenderer(rendererIndex);
 
-        // Show the restart prompt to notify the player
         if (restartPromptPanel != null)
         {
             restartPromptPanel.SetActive(true);
@@ -72,14 +84,15 @@ public class RendererDropdownManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void ApplySavedRenderer()
+    private void ShowUnsupportedRendererError()
     {
-        int savedRendererIndex = PlayerPrefs.GetInt("RendererIndex", 0);
-        GraphicsDeviceType selectedRenderer = availableRenderers[savedRendererIndex];
-
-        if (SystemInfo.graphicsDeviceType != selectedRenderer)
+        if (errorCodeManager != null)
         {
-            PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneWindows, new GraphicsDeviceType[] { selectedRenderer });
+            errorCodeManager.ShowError("SYC-1001");
+        }
+        else
+        {
+            Debug.LogError("ErrorCodeManager not found. Unable to display error.");
         }
     }
 
