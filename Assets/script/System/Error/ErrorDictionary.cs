@@ -1,65 +1,65 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 
-public class ErrorCodeManager : MonoBehaviour
+public class ErrorDictionary : MonoBehaviour
 {
-    // Dictionary of error codes and their messages
-    private Dictionary<string, string> errorMessages = new Dictionary<string, string>
-    {
-        // Graphics Errors (Starting with SYC-1xxx)
-        { "SYC-1001", "Unsupported Graphics Renderer\n• The selected graphics renderer is not supported by the player’s system.\n• Message: \"Unsupported Graphics Renderer. Error Code: SYC-1001\"" },
-        { "SYC-1002", "Graphics Driver Outdated\n• The graphics driver is outdated or incompatible with the selected renderer.\n• Message: \"Graphics Driver Outdated. Error Code: SYC-1002\"" },
-        { "SYC-1003", "Graphics Renderer Initialization Failed\n• The selected renderer failed to initialize.\n• Message: \"Graphics Renderer Initialization Failed. Error Code: SYC-1003\"" },
-        
-        // Network Errors (Starting with SYC-2xxx)
-        { "SYC-2001", "Network Connection Failed\n• The game was unable to connect to the server.\n• Message: \"Network Connection Failed. Error Code: SYC-2001\"" },
-        { "SYC-2002", "Server Timeout\n• The connection to the server timed out.\n• Message: \"Server Timeout. Error Code: SYC-2002\"" },
-        { "SYC-2003", "Invalid Network Settings\n• The network settings are invalid or misconfigured.\n• Message: \"Invalid Network Settings. Error Code: SYC-2003\"" },
-        { "SYC-2004", "Lost Connection\n• The connection to the server was lost.\n• Message: \"Lost Connection. Error Code: SYC-2004\"" },
-        
-        // Miscellaneous Errors (Starting with SYC-3xxx)
-        { "SYC-3001", "Unexpected Error\n• An unexpected error occurred while running the game.\n• Message: \"Unexpected Error. Error Code: SYC-3001\"" },
-        { "SYC-3002", "File Not Found\n• A required file was not found on the system.\n• Message: \"File Not Found. Error Code: SYC-3002\"" },
-        { "SYC-3003", "Insufficient Permissions\n• The game does not have the necessary permissions to perform this action.\n• Message: \"Insufficient Permissions. Error Code: SYC-3003\"" },
-        { "SYC-3004", "Corrupted Installation\n• The game installation is corrupted and cannot proceed.\n• Message: \"Corrupted Installation. Error Code: SYC-3004\"" },
-        { "SYC-3005", "Out of Memory\n• The system ran out of memory during the game process.\n• Message: \"Out of Memory. Error Code: SYC-3005\"" },
-        
-        // Custom Errors (Starting with SYC-4xxx)
-        { "SYC-4001", "Database Connection Failed\n• The game was unable to connect to the required database.\n• Message: \"Database Connection Failed. Error Code: SYC-4001\"" },
-        { "SYC-4002", "User Authentication Failed\n• The user’s authentication failed.\n• Message: \"User Authentication Failed. Error Code: SYC-4002\"" },
-    };
+    private Dictionary<string, string> errorCodes = new Dictionary<string, string>();
 
-    public void ShowError(string errorCode)
+    private void Start()
     {
-        if (errorMessages.ContainsKey(errorCode))
+        InitializeErrorCodes();
+    }
+
+    private void InitializeErrorCodes()
+    {
+        errorCodes.Add("SYC-1001", 
+            "Unsupported Graphics Renderer\n• The selected graphics renderer is not supported by the player’s system.\n• Message: \"Unsupported Graphics Renderer. Error Code: SYC-1001\"");
+        errorCodes.Add("SYC-1002", 
+            "Renderer Initialization Failure\n• The game failed to initialize the selected renderer due to compatibility issues or system limitations.\n• Message: \"Renderer Initialization Failed. Error Code: SYC-1002\"");
+        errorCodes.Add("SYC-1003", 
+            "Renderer Switching Error\n• Switching from one renderer to another failed due to incompatible settings or hardware.\n• Message: \"Error switching to the selected renderer. Error Code: SYC-1003\"");
+        errorCodes.Add("SYC-1004", 
+            "Unsupported Graphics API\n• The selected graphics API is not supported by the player’s system.\n• Message: \"Unsupported Graphics API. Error Code: SYC-1004\"");
+        errorCodes.Add("SYC-1005", 
+            "Low Hardware Specifications\n• The system's hardware is insufficient to run the game with the selected renderer.\n• Message: \"Your hardware does not meet the minimum requirements for the selected renderer. Error Code: SYC-1005\"");
+        errorCodes.Add("SYC-1006", 
+            "Graphics Driver Issue\n• There is an issue with the player's graphics drivers, preventing the renderer from functioning correctly.\n• Message: \"Graphics driver issue detected. Please update your drivers. Error Code: SYC-1006\"");
+        errorCodes.Add("SYC-1007", 
+            "Renderer Compatibility Issue\n• There is a conflict between the renderer and other game settings or hardware.\n• Message: \"Renderer compatibility issue detected. Error Code: SYC-1007\"");
+        errorCodes.Add("SYC-1008", 
+            "Shader Compilation Failure\n• The shaders failed to compile, potentially due to unsupported hardware or API issues.\n• Message: \"Shader compilation failure. Error Code: SYC-1008\"");
+        errorCodes.Add("SYC-1009", 
+            "Outdated Graphics Hardware\n• The graphics hardware is too old to support the modern features required by the renderer.\n• Message: \"Outdated graphics hardware detected. Error Code: SYC-1009\"");
+        errorCodes.Add("SYC-1010", 
+            "Unsupported GPU Feature\n• The selected renderer requires GPU features that are not supported by the player's system.\n• Message: \"Unsupported GPU feature. Error Code: SYC-1010\"");
+
+        errorCodes.Add("SYC-3001", 
+            "File Not Found\n• A critical file required by the game could not be found.\n• Message: \"Required file not found. Error Code: SYC-3001\"");
+        errorCodes.Add("SYC-3002", 
+            "Insufficient Disk Space\n• There is not enough disk space to run or update the game.\n• Message: \"Insufficient disk space. Error Code: SYC-3002\"");
+        errorCodes.Add("SYC-3003", 
+            "Invalid Game Assets\n• A problem with game assets has been detected, possibly corrupt or incompatible files.\n• Message: \"Invalid game assets. Error Code: SYC-3003\"");
+        errorCodes.Add("SYC-3004", 
+            "General Internal Error\n• An unknown error occurred within the game.\n• Message: \"An unexpected internal error occurred. Error Code: SYC-3004\"");
+        errorCodes.Add("SYC-3005", 
+            "Outdated Game Version\n• The game version is outdated and needs to be updated to the latest version.\n• Message: \"Game version is outdated. Please update the game. Error Code: SYC-3005\"");
+    }
+
+    public string GetErrorMessage(string errorCode)
+    {
+        if (errorCodes.ContainsKey(errorCode))
         {
-            string errorMessage = errorMessages[errorCode];
-            ShowSystemErrorPrompt(errorCode, errorMessage);
+            return errorCodes[errorCode];
         }
         else
         {
-            Debug.LogError("Error code not found!");
+            return "Error: Unknown error code.";
         }
     }
 
-    private void ShowSystemErrorPrompt(string errorCode, string errorMessage)
+    public void DisplayError(string errorCode)
     {
-        string message = $"{errorMessage}\n\nError Code: {errorCode}";
-
-        #if UNITY_STANDALONE_WIN
-            MessageBox(IntPtr.Zero, message, "Game Error", 0);
-        #elif UNITY_STANDALONE_OSX
-            Process.Start("osascript", $"-e 'display dialog \"{message}\" with title \"Game Error\"'");
-        #elif UNITY_STANDALONE_LINUX
-            Process.Start("zenity", $"--error --text=\"{message}\"");
-        #else
-            Debug.LogError("Unsupported platform.");
-        #endif
+        string errorMessage = GetErrorMessage(errorCode);
+        Debug.LogError(errorMessage);
     }
-
-    // Windows system prompt
-    [DllImport("user32.dll", CharSet = CharSet.Auto)]
-    public static extern bool MessageBox(IntPtr hWnd, string text, string caption, uint type);
 }
