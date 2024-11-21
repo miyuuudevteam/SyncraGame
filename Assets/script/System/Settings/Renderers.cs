@@ -2,17 +2,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-
-public class RendererDropdownManager : MonoBehaviour
+using UnityEngine.Rendering;
+public class Renderers : MonoBehaviour
 {
     public Dropdown rendererDropdown;
     public GameObject restartPromptPanel;
     private List<GraphicsDeviceType> availableRenderers = new List<GraphicsDeviceType>();
-    private ErrorCodeManager errorCodeManager;
+    private ErrorDictionary ErrorCodeManager;
+    private ErrorDictionary errorCodeManager;
 
     private void Start()
     {
-        errorCodeManager = FindObjectOfType<ErrorCodeManager>();
         rendererDropdown.ClearOptions();
 
         PopulateAvailableRenderers();
@@ -88,7 +88,7 @@ public class RendererDropdownManager : MonoBehaviour
     {
         if (errorCodeManager != null)
         {
-            errorCodeManager.ShowError("SYC-1001");
+            errorCodeManager.DisplayError("SYC-1001");
         }
         else
         {

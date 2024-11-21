@@ -1,50 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Visualizer : MonoBehaviour
 {
-    public float minHeight = 15.0f;
-    public float maxHeight = 425.0f;
-    public float updateSensitivity = 0.5f;
-    public Color visualizerColor = Color.gray;
-    public AudioSource audioSource;
-    public bool loop = true;
-    [Range(64, 8192)]
-    public int visualizerSamples = 64;
-    public VisualizerObj[] visualizerObjects;
+    public Transform[] visualizerBars;
+    public float visualizerSpeed = 10f;
+    public float minHeight = 0.1f;
+    public float maxHeight = 5f;
+    public FFTWindow fftWindow = FFTWindow.Blackman;
+    public int sampleCount = 64;
 
-    void Start()
-    {
-        visualizerObjects = GetComponentsInChildren<VisualizerObj>();
-
-        // Ensure visualizerSamples is a power of two
-        visualizerSamples = Mathf.ClosestPowerOfTwo(visualizerSamples);
-        visualizerSamples = Mathf.Clamp(visualizerSamples, 64, 8192);
-
-        if (!audioSource)
-            return;
-
-        audioSource.loop = loop;
-    }
+    private float[] spectrumData;
 
     void Update()
     {
-        float[] spectrumData = new float[visualizerSamples];
-        audioSource.GetSpectrumData(spectrumData, 0, FFTWindow.Rectangular);
-
-        // Loop through the smaller of the two arrays to avoid IndexOutOfRangeException
-        int objectCount = Mathf.Min(visualizerObjects.Length, visualizerSamples);
-
-        for (int i = 0; i < objectCount; i++)
+        if (spectrumData == null || spectrumData.Length != sampleCount)
         {
-            Vector2 newSize = visualizerObjects[i].GetComponent<RectTransform>().sizeDelta;
+            spectrumData = new float[sampleCount];
+        }
 
-            newSize.y = Mathf.Clamp(Mathf.Lerp(newSize.y, minHeight + (spectrumData[i] * (maxHeight - minHeight) * 5.0f), updateSensitivity), minHeight, maxHeight);
-            visualizerObjects[i].GetComponent<RectTransform>().sizeDelta = newSize;
+        AudioListener.GetSpectrumData(spectrumData, 0, fftWindow);
+        float timeFactor = visualizerSpeed * Time.unscaledDeltaTime;
 
-            visualizerObjects[i].GetComponent<Image>().color = visualizerColor;
+        for (int i = 0; i < visualizerBars.Length && i < sampleCount; i++)
+        {
+            float intensity = spectrumData[i] * (maxHeight - minHeight) + minHeight;
+            Vector3 targetScale = new Vector3(
+                visualizerBars[i].localScale.x,
+                Mathf.Clamp(intensity, minHeight, maxHeight),
+                visualizerBars[i].localScale.z
+            );
+
+            visualizerBars[i].localScale = Vector3.Lerp(visualizerBars[i].localScale, targetScale, timeFactor);
         }
     }
 }

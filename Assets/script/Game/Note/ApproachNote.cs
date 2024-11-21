@@ -5,7 +5,7 @@ public class NoteApproach : MonoBehaviour
 {
     public Image outerNote;
     public Image originalNote;
-    public float approachSpeed = 2f;
+    public float approachSpeed = 2.05f;
     public float maxTransparency = 0.5f;
     public Vector3 initialOuterNoteScale = new Vector3(2f, 2f, 2f);
 
