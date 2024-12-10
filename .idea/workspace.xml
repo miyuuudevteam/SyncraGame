@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56b76c27-1587-449c-b040-f55c9b72c3c6" name="Changes" comment="Make changes to Visualizer.cs and fixed VisualizerSpeed Vsync Issues" />
+    <list default="true" id="56b76c27-1587-449c-b040-f55c9b72c3c6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scene/menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scene/menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/HardwareAcceleration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/HardwareAcceleration.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/Renderers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/Renderers.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/ResolutionManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/ResolutionManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/ThreadingManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/ThreadingManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/VsyncManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/System/Settings/VsyncManager.cs.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,10 +43,10 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/291e350a1994482698fa28b09c0523cf958800/69/88006267/EditorApplication.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/Audio/Visualizer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/System/Error/ErrorDictionary.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/System/PP/PPCalculation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/System/Settings/Renderers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Audio/Visualizer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/System/Error/ErrorDictionary.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/System/PP/PPCalculation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/System/Settings/Renderers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/Tests/System/PPTests/PPCalculationTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.5.2/Editor/PlasticSCM/FindWorkspace.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -102,6 +115,8 @@
       <updated>1732361520470</updated>
       <workItem from="1732361527631" duration="43000" />
       <workItem from="1732361700228" duration="8961000" />
+      <workItem from="1733432364833" duration="184000" />
+      <workItem from="1733852317735" duration="1643000" />
     </task>
     <task id="LOCAL-00001" summary="Make changes to Visualizer.cs and fixed VisualizerSpeed Vsync Issues">
       <option name="closed" value="true" />
@@ -111,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732738077597</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update Visualizer Code">
+      <option name="closed" value="true" />
+      <created>1733432436965</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733432436965</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +160,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Make changes to Approach Speed value" />
     <MESSAGE value="Make changes to Visualizer.cs and fixed VisualizerSpeed Vsync Issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make changes to Visualizer.cs and fixed VisualizerSpeed Vsync Issues" />
+    <MESSAGE value="Update Visualizer Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Visualizer Code" />
   </component>
 </project>
