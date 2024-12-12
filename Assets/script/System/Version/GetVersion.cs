@@ -10,7 +10,7 @@ public class GetVersion : MonoBehaviour
 
     void Start()
     {
-        textComponent.text = "Getting client version information from the API server...";
+        textComponent.text = "Attempting to connect to development api server...";
         StartCoroutine(FetchJsonData());
     }
 
