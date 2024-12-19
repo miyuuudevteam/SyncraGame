@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="56b76c27-1587-449c-b040-f55c9b72c3c6" name="Changes" comment="update workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scene/Test/test_menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scene/Test/test_menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scene/Test/test_menu.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scene/Test/test_menu.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/scene/menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scene/menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/script/System/Version/GetVersion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/script/System/Version/GetVersion.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +36,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/291e350a1994482698fa28b09c0523cf958800/69/88006267/EditorApplication.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/Audio/Visualizer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/Game/Features/BPMCursorEffect.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/System/Error/ErrorDictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/System/Error/ErrorDictionary.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/System/PP/PPCalculation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/System/Version/GetVersion.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/Tests/System/PPTests/PPCalculationTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/System/Version/GetVersion.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Tests/System/PPTests/PPCalculationTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.5.2/Editor/PlasticSCM/FindWorkspace.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -110,6 +110,7 @@
       <workItem from="1733432364833" duration="184000" />
       <workItem from="1733852317735" duration="3866000" />
       <workItem from="1733943346836" duration="4816000" />
+      <workItem from="1734544029679" duration="1801000" />
     </task>
     <task id="LOCAL-00001" summary="Make changes to Visualizer.cs and fixed VisualizerSpeed Vsync Issues">
       <option name="closed" value="true" />
