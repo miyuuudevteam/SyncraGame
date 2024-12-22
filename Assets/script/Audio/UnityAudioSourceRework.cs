@@ -23,7 +23,7 @@ public class UnityAudioSourceRework : MonoBehaviour
     public event BeatAction OnBeat;
 
     private int currentBeatIndex = 0;
-    private const float beatThreshold = 0.05f; // 50ms threshold
+    private const float beatThreshold = 0.05f;
 
     [SerializeField, Range(0f, 3f)]
     private float pitch = 1f;
