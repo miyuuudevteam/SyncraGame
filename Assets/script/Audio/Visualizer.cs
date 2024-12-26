@@ -10,6 +10,7 @@ public class Visualizer : MonoBehaviour
     public int sampleCount = 64;
     public Gradient colorGradient;
 
+    public AudioSource audioSource;
     private float[] spectrumData;
 
     void Update()
@@ -22,7 +23,8 @@ public class Visualizer : MonoBehaviour
             spectrumData = new float[sampleCount];
         }
 
-        AudioListener.GetSpectrumData(spectrumData, 0, fftWindow);
+        audioSource.GetSpectrumData(spectrumData, 0, fftWindow);
+
         float timeFactor = visualizerSpeed * Time.unscaledDeltaTime;
 
         for (int i = 0; i < visualizerBars.Length && i < sampleCount; i++)
@@ -32,8 +34,8 @@ public class Visualizer : MonoBehaviour
 
             Vector3 targetScale = new Vector3(
                 visualizerBars[i].localScale.x,
-                intensity,                     
-                visualizerBars[i].localScale.z 
+                intensity,
+                visualizerBars[i].localScale.z
             );
 
             visualizerBars[i].localScale = Vector3.Lerp(visualizerBars[i].localScale, targetScale, timeFactor);
