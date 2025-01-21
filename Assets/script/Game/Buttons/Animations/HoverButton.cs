@@ -6,11 +6,11 @@ using System.Collections;
 public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("Highlight Settings")]
-    public Image targetImage; // The Image component to highlight
+    public Image targetImage;
     public Color imageHighlightColor = Color.white;
     public Color imagePressColor = Color.gray;
 
-    public Text targetText; // The legacy Text component to highlight
+    public Text targetText;
     public Color textHighlightColor = Color.white;
     public Color textPressColor = Color.gray;
 
@@ -21,14 +21,14 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [Header("Flicker Settings")]
     public float flickerSpeed = 0.1f;
     public float highlightTransitionSpeed = 0.2f;
-    public Color flickerColor = Color.gray; // The color to flicker to
+    public Color flickerColor = Color.gray;
 
     private bool isHovering = false;
     private Coroutine flickerCoroutine;
 
     private void Start()
     {
-        // Set the default colors at the start
+
         if (targetImage != null)
             targetImage.color = defaultImageColor;
 
@@ -54,7 +54,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Change to press colors temporarily
+
         if (targetImage != null)
             targetImage.color = imagePressColor;
 
