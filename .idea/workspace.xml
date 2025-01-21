@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56b76c27-1587-449c-b040-f55c9b72c3c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_12_2024_0_43_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_12_2024_0_43__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scene/Test/test_menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scene/Test/test_menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="56b76c27-1587-449c-b040-f55c9b72c3c6" name="Changes" comment="fixed minor issues" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/script/System/Version/GetVersion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/Tests/System/PPTests/PPCalculationTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.5.2/Editor/PlasticSCM/FindWorkspace.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/aquav/RiderProjects/SyncraGame/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -116,7 +110,7 @@
       <workItem from="1734544029679" duration="1801000" />
       <workItem from="1736889459927" duration="1348000" />
       <workItem from="1737048690678" duration="6502000" />
-      <workItem from="1737484458641" duration="2639000" />
+      <workItem from="1737484458641" duration="3183000" />
     </task>
     <task id="LOCAL-00001" summary="Make changes to Visualizer.cs and fixed VisualizerSpeed Vsync Issues">
       <option name="closed" value="true" />
@@ -150,7 +144,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733860696630</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed animation bugs">
+      <option name="closed" value="true" />
+      <created>1737487880087</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737487880087</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixed minor issues">
+      <option name="closed" value="true" />
+      <created>1737487968649</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737487968649</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +189,8 @@
     <MESSAGE value="Update Visualizer Code" />
     <MESSAGE value="changes the design of settings menu and removed all of the settings scripts" />
     <MESSAGE value="update workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="update workspace.xml" />
+    <MESSAGE value="Fixed animation bugs" />
+    <MESSAGE value="fixed minor issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed minor issues" />
   </component>
 </project>
